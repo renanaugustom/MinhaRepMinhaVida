@@ -5,19 +5,19 @@
     <title>My WebProject</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/custom.css" rel="stylesheet" />
+    <link href="Content/flatdesign.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
 </head>
 
 <body ng-controller="IndexController as index" ng-cloak>
 
-    <nav class="navbar navbar-default" ng-if="index.currentUser && !onLoginScreen">
-        <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
-            <li>
-                <button class="btn btn-default navbar-btn" ng-click="index.logout()">
-                    Logout <strong>{{index.currentUser.user}}</strong>
-                </button>
-            </li>
-        </ul>
-    </nav>
+    <div ng-controller="menuController" ng-if="index.currentUser && !onLoginScreen">
+        <menu menus='menus'></menu>
+    </div>
 
     <div id="loaderDiv" loader>
         <img src="Images/load.gif" class="ajax-loader" />
@@ -55,6 +55,7 @@
 
     <!-- Directives -->
     <script src="Scripts/Directives/LoadingDirective.js"></script>
+    <script src="Scripts/Directives/menuDirective.js"></script>
 
     <!-- Controllers -->
     <script src="Scripts/Controllers/LoginController.js"></script>
